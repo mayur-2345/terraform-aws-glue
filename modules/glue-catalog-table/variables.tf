@@ -51,9 +51,9 @@ variable "partition_keys" {
   # Using `type = map(any)` since some of the the fields are optional, and we're not requiring
   # Terraform 1.3+ yet, which support optional object attributes,
   # and we don't want to force the caller to specify all of them and set to `null` those not used.
-  type        = map(any)
+  type        = list(any)
   description = "Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys."
-  default     = {}
+  default     = []
 }
 
 variable "retention" {
